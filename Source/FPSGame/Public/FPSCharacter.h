@@ -96,6 +96,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Gameplay")
 		bool isDead;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Gameplay")
+		AActor* InteractActor;
+
 	UFUNCTION()
 		void StartingCrouch();
 
@@ -113,6 +116,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 		void AimingAnim(bool Aim);
+
+	UFUNCTION(BlueprintCallable)
+		void Interact();
 	
 
 

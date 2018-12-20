@@ -98,5 +98,8 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 		void MeleeAttack();
 
+	UFUNCTION(BlueprintImplementableEvent)
+		void Interact();
+
 	
 };

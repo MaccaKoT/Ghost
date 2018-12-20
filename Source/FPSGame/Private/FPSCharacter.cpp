@@ -8,6 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Camera/PlayerCameraManager.h"
+#include "AICharacter.h"
 #include "TimerManager.h"
 
 
@@ -214,6 +215,16 @@ void AFPSCharacter::StartingCrouch()
 	else
 	{
 		UnCrouch();
+	}
+}
+
+void AFPSCharacter::Interact()
+{
+	AAICharacter* NPC = Cast<AAICharacter>(InteractActor);
+	
+	if (NPC != nullptr)
+	{
+		NPC->Interact();
 	}
 }
 
