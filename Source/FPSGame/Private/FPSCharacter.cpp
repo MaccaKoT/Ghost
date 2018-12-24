@@ -9,6 +9,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Camera/PlayerCameraManager.h"
 #include "AICharacter.h"
+#include "InteractiveActor.h"
 #include "TimerManager.h"
 
 
@@ -227,6 +228,13 @@ void AFPSCharacter::Interact()
 	if (NPC != nullptr)
 	{
 		NPC->Interact();
+		return;
+	}
+
+	AInteractiveActor* IntActor = Cast<AInteractiveActor>(InteractActor);
+	{
+		IntActor->Interact();
+		return;
 	}
 }
 
