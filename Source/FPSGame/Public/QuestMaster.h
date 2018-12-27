@@ -137,5 +137,32 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QuestInfo")
 		F_QuestInfo Quest;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QuestInfo")
+		TArray<int> StartingSubGoalIndices;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Not Edit")
+		TArray<int> CurrentGoalIndices;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Not Edit")
+		TArray<F_GoalInfo> CurrentGoals;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Not Edit")
+		int CurrentHuntedAmount;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Not Edit")
+		int SelectedSubGoalIndex;
+
+	UFUNCTION(BlueprintCallable, Category = "Quest")
+		void UpdateSubGoals();
+
+	UFUNCTION(BlueprintCallable, Category = "Quest")
+		void SetupStartingGoals();
+
+	UFUNCTION(BlueprintCallable, Category = "Quest")
+		bool GoToNextSubGoal();
+
+
+
+
 };
 
