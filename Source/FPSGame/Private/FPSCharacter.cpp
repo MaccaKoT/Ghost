@@ -70,6 +70,8 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AFPSCharacter::StartSprint);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AFPSCharacter::StopSprint);
 
+	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AFPSCharacter::Interact);
+
 	PlayerInputComponent->BindAxis("MoveForward", this, &AFPSCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AFPSCharacter::MoveRight);
 
@@ -84,7 +86,7 @@ void AFPSCharacter::Tick(float DeltaTime)
 
 void AFPSCharacter::Fire()
 {
-	if (bIsReloading == true || bIsKicking == true)
+	if (bIsReloading == true || bIsKicking == true || isWidget)
 	{
 		return;
 	}
@@ -110,7 +112,7 @@ void AFPSCharacter::Fire()
 
 void AFPSCharacter::Hit()
 {
-	if (bIsCrouched == false && bIsReloading == false && bIsKicking == false)
+	if (bIsCrouched == false && bIsReloading == false && bIsKicking == false && isWidget == false)
 	{
 		if (bIsAiming == true)
 		{
@@ -128,7 +130,7 @@ void AFPSCharacter::Hit()
 
 void AFPSCharacter::StartAim()
 {
-	if (bIsReloading == true || bIsKicking == true)
+	if (bIsReloading == true || bIsKicking == true || isWidget)
 	{
 		return;
 	}
@@ -158,7 +160,7 @@ void AFPSCharacter::ReloadStop()
 
 void AFPSCharacter::StartSprint()
 {
-	if ((Sprint == false))
+	if (Sprint == false && isWidget == false)
 	{
 		if (bIsCrouched == true)
 		{
@@ -190,7 +192,7 @@ void AFPSCharacter::StopSprint()
 
 void AFPSCharacter::ReloadStart()
 {
-	if (bIsReloading != true)
+	if (bIsReloading != true && isWidget == false)
 	{
 		bIsReloading = true;
 		FTimerHandle ReloadTimer;
@@ -203,7 +205,7 @@ void AFPSCharacter::ReloadStart()
 
 void AFPSCharacter::StartingCrouch()
 {
-	if (bIsCrouched == false)
+	if (bIsCrouched == false && isWidget == false)
 	{
 		Crouch();
 		if (Sprint == true)
@@ -220,6 +222,11 @@ void AFPSCharacter::StartingCrouch()
 
 void AFPSCharacter::Interact()
 {
+	if (isWidget)
+	{
+		return;
+	}
+
 	AAICharacter* NPC = Cast<AAICharacter>(InteractActor);
 	
 	if (NPC != nullptr)
@@ -230,7 +237,7 @@ void AFPSCharacter::Interact()
 
 void AFPSCharacter::MoveForward(float Value)
 {
-	if (Value != 0.0f)
+	if (Value != 0.0f && isWidget == false)
 	{
 		// add movement in that direction
 		AddMovementInput(GetActorForwardVector(), Value);
@@ -244,7 +251,7 @@ void AFPSCharacter::MoveForward(float Value)
 
 void AFPSCharacter::MoveRight(float Value)
 {
-	if (Value != 0.0f)
+	if (Value != 0.0f && isWidget == false)
 	{
 		// add movement in that direction
 		AddMovementInput(GetActorRightVector(), Value);
@@ -253,12 +260,22 @@ void AFPSCharacter::MoveRight(float Value)
 
 void AFPSCharacter::Turn(float Val)
 {
+	if (isWidget)
+	{
+		return;
+	}
+
 	AddControllerYawInput(Val);
 	YawInput = Val;
 }
 
 void AFPSCharacter::LookUp(float Val)
 {
+	if (isWidget)
+	{
+		return;
+	}
+
 	AddControllerPitchInput(Val);
 	PitchInput = Val;
 }

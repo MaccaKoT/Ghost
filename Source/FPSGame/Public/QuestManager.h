@@ -6,7 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "GameFramework/Character.h"
 #include "Runtime/UMG/Public/UMG.h"
-#include "Slate.h"
+#include "QuestMaster.h"
 #include "QuestManager.generated.h"
 
 UCLASS()
@@ -28,5 +28,14 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, Category = "Default", meta = (ExposeOnSpawn = "true"))
 		ACharacter* Character;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Quest")
+		AQuestMaster* CurrentQuest;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Quest")
+		F_GoalInfo CurrentGoal;
+
+	UFUNCTION(BlueprintCallable)
+		void OnSwitchQuest();
 
 };

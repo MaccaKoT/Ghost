@@ -97,6 +97,9 @@ public:
 		bool isDead;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Gameplay")
+		bool isWidget;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Gameplay")
 		AActor* InteractActor;
 
 	UFUNCTION()

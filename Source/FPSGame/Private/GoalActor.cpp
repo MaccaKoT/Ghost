@@ -1,9 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "QuestManager.h"
+#include "GoalActor.h"
 
 // Sets default values
-AQuestManager::AQuestManager()
+AGoalActor::AGoalActor()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -11,21 +11,16 @@ AQuestManager::AQuestManager()
 }
 
 // Called when the game starts or when spawned
-void AQuestManager::BeginPlay()
+void AGoalActor::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
 // Called every frame
-void AQuestManager::Tick(float DeltaTime)
+void AGoalActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
-
-void AQuestManager::OnSwitchQuest()
-{
-}
-
 
