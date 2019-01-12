@@ -24,8 +24,4 @@ void AQuestManager::Tick(float DeltaTime)
 
 }
 
-void AQuestManager::OnSwitchQuest()
-{
-}
-
 

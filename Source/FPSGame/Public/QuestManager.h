@@ -35,7 +35,4 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Quest")
 		F_GoalInfo CurrentGoal;
 
-	UFUNCTION(BlueprintCallable)
-		void OnSwitchQuest();
-
 };
