@@ -41,8 +41,9 @@ struct F_Rewards
 {
 	GENERATED_BODY()
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int Money;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float Experience;
 };
@@ -52,8 +53,9 @@ struct F_GoalLocation
 {
 	GENERATED_BODY()
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool HasLocation;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FVector Location;
 };
@@ -63,13 +65,15 @@ struct F_GoalInfo
 {
 	GENERATED_BODY()
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool CustomGoal;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		E_GoalTypes Type;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FText Text;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FText AdditionalText;
 
@@ -81,11 +85,21 @@ struct F_GoalInfo
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool UpdateQuestDescription;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FText UpdatedDescription;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<int> FollowingSubGoalIndices;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool UseRadius;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Radius;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FLinearColor RadiusColor;
 };
 
 USTRUCT(BlueprintType)
@@ -93,7 +107,7 @@ struct F_QuestInfo
 {
 	GENERATED_BODY()
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FText Name;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
