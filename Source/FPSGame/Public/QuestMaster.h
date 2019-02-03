@@ -161,6 +161,9 @@ public:
 		TArray<F_GoalInfo> CurrentGoals;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Not Edit")
+		FText CurrentDescription;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Not Edit")
 		int CurrentHuntedAmount;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Not Edit")

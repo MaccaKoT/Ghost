@@ -45,6 +45,7 @@ void AQuestMaster::SetupStartingGoals()
 {
 	CurrentGoalIndices.Empty();
 	CurrentGoalIndices = StartingSubGoalIndices;
+	CurrentDescription = Quest.Description;
 
 	UpdateSubGoals();
 }
