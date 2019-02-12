@@ -23,11 +23,7 @@ public:
 	// Sets default values for this actor's properties
 	AAIWeapon();
 
-	void Shoot();
-	void Reload();
-
 	int Ammo;
-
 	bool isReloading;
 
 protected:
@@ -46,6 +42,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 		float ShootRate;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+		float ReloadSpeed;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 		TSubclassOf<AFPSProjectile> Projectile;
@@ -56,6 +55,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Stats")
 		UStaticMeshComponent* MeleeMesh;
 
+	UFUNCTION(BlueprintCallable)
+	    bool Shoot();
 
-	
+	UFUNCTION(BlueprintCallable)
+		void Reload();
 };

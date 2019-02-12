@@ -120,8 +120,6 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 		void AimingAnim(bool Aim);
 
-	UFUNCTION(BlueprintCallable)
-		void Interact();
 	
 
 

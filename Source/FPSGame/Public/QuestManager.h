@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/Character.h"
-#include "Runtime/UMG/Public/UMG.h"
 #include "QuestMaster.h"
 #include "QuestManager.generated.h"
 

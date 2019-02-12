@@ -178,8 +178,5 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Quest")
 		bool GoToNextSubGoal();
 
-
-
-
 };
 

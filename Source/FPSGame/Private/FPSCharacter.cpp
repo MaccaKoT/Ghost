@@ -8,7 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Camera/PlayerCameraManager.h"
-#include "AICharacter.h"
+#include "Misc/OutputDeviceNull.h"
 #include "TimerManager.h"
 
 
@@ -70,7 +70,6 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AFPSCharacter::StartSprint);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AFPSCharacter::StopSprint);
 
-	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AFPSCharacter::Interact);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AFPSCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AFPSCharacter::MoveRight);
@@ -217,21 +216,6 @@ void AFPSCharacter::StartingCrouch()
 	else
 	{
 		UnCrouch();
-	}
-}
-
-void AFPSCharacter::Interact()
-{
-	if (isWidget)
-	{
-		return;
-	}
-
-	AAICharacter* NPC = Cast<AAICharacter>(InteractActor);
-	
-	if (NPC != nullptr)
-	{
-		NPC->Interact();
 	}
 }
 

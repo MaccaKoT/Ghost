@@ -21,12 +21,20 @@ AAIWeapon::AAIWeapon()
 
 }
 
-void AAIWeapon::Shoot()
+bool AAIWeapon::Shoot()
 {
 	if (Ammo > 0)
 	{
-		AFPSProjectile* LastProjectile = GetWorld()->SpawnActor<AFPSProjectile>(Projectile, Mesh->GetSocketTransform(FName("Muzzle")));
+		static AFPSProjectile* LastProjectile;
+		LastProjectile = GetWorld()->SpawnActor<AFPSProjectile>(Projectile, Mesh->GetSocketTransform(FName("Muzzle")));
+
 		Ammo = Ammo - 1;
+
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
